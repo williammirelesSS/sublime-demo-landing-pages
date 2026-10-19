@@ -173,7 +173,7 @@ PAGES: list[dict] = [
             ("Account", "Tyrell Corporation (fictional)"),
             ("Amount", "$3,249.00"),
             ("Status", "Payment processed (lure wording)"),
-            ("Dispute line in the lure", "+1 (555) 010-5957 (fictional)"),
+            ("Callback instruction in the lure", "Phone billing, not the meeting dial-in"),
         ],
         "paragraphs": [
             "Invoice summary page referenced by a calendar invite. The lure tells the reader to "
