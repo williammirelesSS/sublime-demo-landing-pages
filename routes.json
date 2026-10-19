@@ -1,0 +1,91 @@
+{
+  "banner_marker": "Sublime Security Demo Asset",
+  "routes": [
+    {
+      "path": "",
+      "kind": "page",
+      "marker": "Demo landing pages"
+    },
+    {
+      "path": "rfq-portal/",
+      "kind": "page",
+      "marker": "Secure Document Portal"
+    },
+    {
+      "path": "sharepoint/sites/procurement/Q3-RFQ/",
+      "kind": "page",
+      "marker": "Procurement: Q3 RFQ (mirror)"
+    },
+    {
+      "path": "document-viewer/",
+      "kind": "page",
+      "marker": "Online Document Viewer"
+    },
+    {
+      "path": "account-verify/",
+      "kind": "page",
+      "marker": "Protected document notice"
+    },
+    {
+      "path": "teams-message/",
+      "kind": "page",
+      "marker": "Missed message from Rachael Demo"
+    },
+    {
+      "path": "billing-review/invoice/NPS-2026-04721/",
+      "kind": "page",
+      "marker": "Invoice NPS-2026-04721"
+    },
+    {
+      "path": "billing-review/dispute/",
+      "kind": "page",
+      "marker": "Dispute invoice NPS-2026-04721"
+    },
+    {
+      "path": "voicemail/play/",
+      "kind": "page",
+      "marker": "Voicemail from +1 (555) 847-3201"
+    },
+    {
+      "path": "voicemail/settings/",
+      "kind": "page",
+      "marker": "Voicemail settings"
+    },
+    {
+      "path": "shared-workspace/rfq-documentation-q3-2026/",
+      "kind": "page",
+      "marker": "RFQ Documentation, Q3 2026"
+    },
+    {
+      "path": "onedrive-mirror/rfq-q3-2026/",
+      "kind": "page",
+      "marker": "Mirror: RFQ Q3 2026 pack"
+    },
+    {
+      "path": "remittance/updated-account/",
+      "kind": "page",
+      "marker": "Updated remittance advice"
+    },
+    {
+      "path": "quote-pack/q3-2026/",
+      "kind": "page",
+      "marker": "Revised quote pack, Q3 2026"
+    },
+    {
+      "path": "remittance/account-update/",
+      "kind": "page",
+      "marker": "Remittance account update"
+    },
+    {
+      "path": "esign/review/",
+      "kind": "page",
+      "marker": "Q1 Executive Compensation Agreement"
+    },
+    {
+      "path": "go/viewer/",
+      "kind": "meta-refresh",
+      "marker": "Opening the document viewer",
+      "refresh_to": "document-viewer/"
+    }
+  ]
+}

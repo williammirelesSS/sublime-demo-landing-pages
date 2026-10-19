@@ -1,0 +1,48 @@
+name: link-health
+
+on:
+  schedule:
+    - cron: "17 6 * * *"
+  page_build:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: link-health
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      BASE_URL: https://williammirelesss.github.io/sublime-demo-landing-pages/
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+
+      - name: Built site matches the generator
+        run: |
+          python3 build_site.py
+          git diff --exit-code -- docs routes.json
+
+      - name: Pre-publish safety gate on the built files
+        run: python3 check_site.py --local docs
+
+      - name: Wait for a fresh Pages deployment after a push
+        if: github.event_name == 'push'
+        run: sleep 90
+
+      - name: Live check of every published route
+        run: |
+          for attempt in 1 2 3; do
+            python3 check_site.py --base "$BASE_URL" && exit 0
+            echo "attempt $attempt failed, retrying in 60s"
+            sleep 60
+          done
+          exit 1
