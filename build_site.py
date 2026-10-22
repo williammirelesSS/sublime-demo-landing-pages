@@ -26,6 +26,24 @@ HERE = Path(__file__).resolve().parent
 OUT = HERE / "docs"
 BANNER_MARKER = "Sublime Security Demo Asset"
 
+# The only command a ClickFix demo page may ever present. It is deliberately
+# constrained here, in source, so the page cannot drift into a real payload:
+# it prints a fixed marker and exits. No download, no secondary execution, no
+# network, no PowerShell, no encoding. check_site.py re-asserts this allowlist
+# against the published HTML, so weakening it here fails the gate there too.
+CLICKFIX_COMMAND = "cmd /c echo SUBLIME_CLICKFIX_DEMO"
+CLICKFIX_ALLOWED_COMMANDS = ("cmd /c echo SUBLIME_CLICKFIX_DEMO",)
+CLICKFIX_FORBIDDEN = (
+    "powershell", "pwsh", "cmd.exe", "iex", "invoke-", "iwr", "curl", "wget",
+    "certutil", "bitsadmin", "mshta", "rundll32", "regsvr32", "msiexec",
+    "downloadstring", "frombase64", "base64", "-enc", "-encodedcommand",
+    "http://", "https://", ".exe", ".dll", ".ps1", ".hta", ".vbs", ".bat", "&&", "|",
+)
+assert CLICKFIX_COMMAND in CLICKFIX_ALLOWED_COMMANDS, "ClickFix command must be allowlisted"
+assert not any(
+    token in CLICKFIX_COMMAND.lower() for token in CLICKFIX_FORBIDDEN
+), "ClickFix command contains a forbidden token"
+
 CSP = (
     "default-src 'none'; style-src 'unsafe-inline'; img-src 'self' data:; "
     "base-uri 'none'; form-action 'none'"
@@ -58,6 +76,14 @@ td{color:var(--text);font-family:"SF Mono",Menlo,Consolas,monospace;font-size:13
 a{color:var(--green-shade)}
 .foot{font-size:12px;color:var(--muted);margin:16px 4px 40px}
 .route{font-family:"SF Mono",Menlo,Consolas,monospace}
+.alert{border-left:3px solid var(--ink);background:#FBF0F0;padding:12px 16px;border-radius:0 6px 6px 0;font-size:14px;color:var(--ink);margin:4px 0 18px}
+.alert b{color:var(--ink)}
+.steps{margin:4px 0 18px;padding-left:22px;color:var(--text)}
+.steps li{margin:6px 0}
+.steps kbd{font-family:"SF Mono",Menlo,Consolas,monospace;font-size:12px;background:var(--page);border:1px solid var(--border);border-radius:4px;padding:1px 6px}
+.cmd{margin:4px 0 18px}
+.cmd .cmd-label{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 6px}
+.cmd code{display:block;font-family:"SF Mono",Menlo,Consolas,monospace;font-size:13px;background:var(--ink);color:var(--green);padding:14px 16px;border-radius:6px;word-break:break-all}
 """.strip()
 
 DOC_ICON = (
@@ -146,6 +172,37 @@ PAGES: list[dict] = [
         "explain": "The decoded destination of the <b>QR quishing</b> sample: a QR code inside a "
         "PDF inside the email. Sublime extracts it and runs link analysis against this page.",
         "marker": "Protected document notice",
+    },
+    {
+        "route": "browser-verification/",
+        "kicker": "Document Verification",
+        "heading": "Additional verification required to open this document",
+        "alert": "Verification failed: this browser could not be confirmed automatically. Complete the manual check below to finish loading the shared document.",
+        "paragraphs": [
+            "A real ClickFix lure claims the document cannot load until you prove you are "
+            "not a bot, then walks you through pasting a command into the Windows Run dialog. "
+            "The command is the whole attack: in the wild it fetches and runs malware.",
+            "On this demo page the command is harmless and fixed. It prints a single marker "
+            "and exits. It downloads nothing, changes nothing, needs no network and is shown "
+            "for illustration only; this static page cannot copy anything to your clipboard.",
+        ],
+        "steps": [
+            "Press <kbd>Win</kbd> + <kbd>R</kbd> to open the Run dialog.",
+            "Press <kbd>Ctrl</kbd> + <kbd>V</kbd> to paste the verification command.",
+            "Press <kbd>Enter</kbd> to finish the check.",
+        ],
+        "command": CLICKFIX_COMMAND,
+        "table": [
+            ("Technique", "ClickFix (paste-and-run social engineering)"),
+            ("What a real lure runs", "A command that fetches and runs malware"),
+            ("What this demo runs", "A fixed, inert marker that prints and exits"),
+        ],
+        "explain": "End page for the <b>ClickFix</b> browser-verification sample. The danger in a "
+        "real ClickFix attack is the command the page instructs the victim to paste and run, not "
+        "the page itself. This demo keeps that command constrained to one harmless marker so the "
+        "technique is visible with no risk. Detection keys on the lure message and the paste-and-run "
+        "instructions, not on anything this page does.",
+        "marker": "Additional verification required to open this document",
     },
     {
         "route": "teams-message/",
@@ -372,8 +429,18 @@ def render_page(page: dict) -> str:
     if page.get("doc"):
         name, meta = page["doc"]
         parts.append(f"<div class=\"doc\">{DOC_ICON}<div><strong>{name}</strong><span>{meta}</span></div></div>\n")
+    if page.get("alert"):
+        parts.append(f"<div class=\"alert\">{page['alert']}</div>\n")
     for paragraph in page.get("paragraphs", []):
         parts.append(f"<p>{paragraph}</p>\n")
+    if page.get("steps"):
+        steps = "".join(f"<li>{step}</li>" for step in page["steps"])
+        parts.append(f"<ol class=\"steps\">{steps}</ol>\n")
+    if page.get("command"):
+        parts.append(
+            "<div class=\"cmd\"><span class=\"cmd-label\">Command the lure tells you to paste</span>"
+            f"<code>{html.escape(page['command'])}</code></div>\n"
+        )
     if page.get("table"):
         rows = "".join(f"<tr><th>{k}</th><td>{v}</td></tr>" for k, v in page["table"])
         parts.append(f"<table>{rows}</table>\n")
@@ -454,7 +521,11 @@ def main() -> int:
         target = OUT / page["route"] / "index.html"
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(render_page(page), encoding="utf-8")
-        routes.append({"path": page["route"], "kind": "page", "marker": page["marker"]})
+        route = {"path": page["route"], "kind": "page", "marker": page["marker"]}
+        if page.get("command"):
+            route["kind"] = "clickfix"
+            route["command"] = page["command"]
+        routes.append(route)
     for hop in REFRESH_HOPS:
         target = OUT / hop["route"] / "index.html"
         target.parent.mkdir(parents=True, exist_ok=True)

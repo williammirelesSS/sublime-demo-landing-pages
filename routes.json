@@ -27,6 +27,12 @@
       "marker": "Protected document notice"
     },
     {
+      "path": "browser-verification/",
+      "kind": "clickfix",
+      "marker": "Additional verification required to open this document",
+      "command": "cmd /c echo SUBLIME_CLICKFIX_DEMO"
+    },
+    {
       "path": "teams-message/",
       "kind": "page",
       "marker": "Missed message from Rachael Demo"

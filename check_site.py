@@ -60,6 +60,22 @@ REQUIRED = [
 TAG_RE = re.compile(r"<style\b.*?</style>|<[^>]+>", re.I | re.S)
 REFRESH_RE = re.compile(r"<meta http-equiv=\"refresh\" content=\"\d+;\s*url=([^\"]+)\"", re.I)
 
+# ClickFix allowlist. A route of kind "clickfix" presents a command for a reader to
+# paste and run, so it gets a stricter, explicit gate on top of the global checks:
+# the shown command must match this allowlist exactly, and the page must contain no
+# token that could turn a harmless demo into a real payload. This tightens the gate
+# for command-bearing pages; it never relaxes the site-wide FORBIDDEN/REQUIRED rules.
+CLICKFIX_ALLOWED_COMMANDS = ("cmd /c echo SUBLIME_CLICKFIX_DEMO",)
+CLICKFIX_FORBIDDEN = (
+    re.compile(
+        r"powershell|pwsh|cmd\.exe|\biex\b|invoke-|\biwr\b|\bcurl\b|\bwget\b|certutil|"
+        r"bitsadmin|mshta|rundll32|regsvr32|msiexec|downloadstring|frombase64|base64|"
+        r"-enc\b|-encodedcommand|https?://|\.exe\b|\.dll\b|\.ps1\b|\.hta\b|\.vbs\b|\.bat\b",
+        re.I,
+    ),
+    "forbidden command token",
+)
+
 
 class Colors:
     GREEN_BOLD = "\033[1;32m"
@@ -159,6 +175,19 @@ def check(routes_doc: dict[str, Any], base: str, local: Path | None, timeout: in
                 problems.append(f"unexpected content type {fetched.get('content_type')}")
         if body:
             problems += content_problems(body, [banner, route["marker"]])
+        if route["kind"] == "clickfix" or route.get("command"):
+            command = route.get("command", "")
+            if not command:
+                problems.append("clickfix route has no command recorded in routes.json")
+            elif command not in body:
+                problems.append(f"clickfix command {command!r} is not shown on the page")
+            if command and command not in CLICKFIX_ALLOWED_COMMANDS:
+                problems.append(f"clickfix command {command!r} is not in the allowlist")
+            pattern, label = CLICKFIX_FORBIDDEN
+            if body:
+                hit = pattern.search(body)
+                if hit:
+                    problems.append(f"{label}: {hit.group(0)!r}")
         if route["kind"] == "meta-refresh":
             match = REFRESH_RE.search(body)
             if not match:
