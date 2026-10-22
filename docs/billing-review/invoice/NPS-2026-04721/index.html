@@ -8,54 +8,98 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Invoice NPS-2026-04721 | Sublime Security Demo Asset</title>
 <style>
-:root{--green:#04E69B;--green-neutral:#F0FBF6;--green-shade:#006D49;--ink:#000;--text:#575757;--muted:#7F7F7F;--border:#D6D6D6;--page:#FAFAFA}
+:root{--green:#04E69B;--green-neutral:#F0FBF6;--green-shade:#006D49;--ink:#0B0B0B;--text:#575757;--muted:#8A8A8A;--border:#E2E4E8;--page:#F3F4F6;--panel:#FFFFFF}
 *{box-sizing:border-box}
-body{margin:0;background:var(--page);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;font-size:15px;line-height:1.55}
-.demo-banner{background:var(--ink);color:#fff;padding:10px 20px;font-size:13px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+html,body{margin:0}
+body{background:var(--page);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;font-size:14px;line-height:1.5}
+.demo-banner{background:var(--ink);color:#fff;padding:7px 16px;font-size:12px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
 .demo-banner strong{color:var(--green);letter-spacing:.02em}
-.demo-banner .dot{width:10px;height:10px;border-radius:50%;background:var(--green);flex:none}
-.wrap{max-width:760px;margin:28px auto;padding:0 16px}
-.card{background:#fff;border:1px solid var(--border);border-radius:8px;overflow:hidden}
-.card-head{padding:20px 28px;border-bottom:1px solid var(--border);background:var(--green-neutral)}
-.kicker{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--green-shade);font-weight:600;margin:0 0 4px}
-h1{font-size:22px;margin:0;font-weight:600}
-.card-body{padding:24px 28px}
-.card-body p{color:var(--text);margin:0 0 14px}
-table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:14px}
-th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--border)}
-th{background:var(--page);font-weight:600;width:38%}
-td{color:var(--text);font-family:"SF Mono",Menlo,Consolas,monospace;font-size:13px}
-.doc{display:flex;gap:14px;align-items:center;border:1px solid var(--border);border-radius:8px;padding:14px 16px;margin:4px 0 18px}
+.demo-banner .dot{width:9px;height:9px;border-radius:50%;background:var(--green);flex:none}
+.demo-banner .tag{color:#C9C9C9}
+.app{max-width:1040px;margin:12px auto;padding:0 12px}
+.appbar{display:flex;align-items:center;gap:14px;background:var(--bar,#111);color:var(--barink,#fff);padding:10px 16px;border-radius:10px 10px 0 0}
+.appbar .brand{display:flex;align-items:center;gap:9px;font-weight:700;font-size:15px;letter-spacing:.01em}
+.appbar .brand svg{flex:none;display:block}
+.appbar .file{font-weight:600;font-size:14px;opacity:.95;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.appbar .sep{opacity:.4}
+.appbar .spacer{flex:1}
+.appbar .presence{display:flex;gap:-6px}
+.appbar .ava{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;border:2px solid var(--bar,#111);margin-left:-6px}
+.appbar .pill{font-size:12px;font-weight:600;padding:6px 12px;border-radius:7px;background:rgba(255,255,255,.16);color:inherit}
+.appbar .pill.solid{background:var(--accent,#2684FF);color:#fff}
+.subbar{display:flex;align-items:center;gap:10px;background:var(--panel);border:1px solid var(--border);border-top:none;padding:8px 16px;font-size:12px;color:var(--muted);flex-wrap:wrap}
+.subbar .crumb{color:var(--text);font-weight:500}
+.subbar .crumb b{color:var(--ink)}
+.subbar .tool{padding:4px 10px;border:1px solid var(--border);border-radius:6px;color:var(--text);background:#fff;font-weight:500}
+.subbar .spacer{flex:1}
+.layout{display:flex;gap:14px;background:var(--panel);border:1px solid var(--border);border-top:none;border-radius:0 0 10px 10px;padding:14px;min-height:382px}
+.rail{flex:none;width:176px;font-size:12px}
+.rail h4{margin:0 0 8px;font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted)}
+.rail .row{display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:6px;color:var(--text)}
+.rail .row.active{background:var(--green-neutral);color:var(--green-shade);font-weight:600}
+.rail .row .ico{width:16px;height:16px;flex:none;border-radius:3px;background:var(--border)}
+.rail .row .ico.g{background:var(--green)}
+.rail .divider{height:1px;background:var(--border);margin:10px 0}
+.stage{flex:1;min-width:0}
+.kicker{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--green-shade);font-weight:700;margin:0 0 3px}
+h1{font-size:19px;margin:0 0 10px;font-weight:600;line-height:1.25}
+.stage p{color:var(--text);margin:0 0 11px}
+.doc{display:flex;gap:12px;align-items:center;border:1px solid var(--border);border-radius:8px;padding:11px 13px;margin:0 0 13px;background:#fff}
 .doc svg{flex:none}
-.doc strong{display:block}
-.doc span{font-size:13px;color:var(--muted)}
-.explain{border-left:3px solid var(--green);background:var(--green-neutral);padding:12px 16px;border-radius:0 6px 6px 0;font-size:14px;color:var(--text);margin-top:6px}
+.doc strong{display:block;font-size:14px}
+.doc span{font-size:12px;color:var(--muted)}
+.frames{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin:0 0 13px}
+.frame{border:1px solid var(--border);border-radius:7px;overflow:hidden;background:#fff}
+.frame .thumb{height:92px;background:linear-gradient(180deg,#fbfbfc,#eef0f3);border-bottom:1px solid var(--border);position:relative}
+.frame .thumb .ln{position:absolute;left:12px;right:12px;height:6px;border-radius:3px;background:#E4E7EB}
+.frame .thumb .ln.a{top:16px}.frame .thumb .ln.b{top:30px;right:40px}.frame .thumb .ln.c{top:44px;right:26px}
+.frame .thumb .chip{position:absolute;left:12px;bottom:12px;width:34px;height:20px;border-radius:4px;background:var(--accent,#2684FF);opacity:.85}
+.frame .cap{padding:7px 10px;font-size:12px}
+.frame .cap b{display:block;font-weight:600}
+.frame .cap span{color:var(--muted);font-size:11px}
+table.meta{width:100%;border-collapse:collapse;margin:4px 0 13px;font-size:13px}
+table.meta th,table.meta td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--border);vertical-align:top}
+table.meta th{background:#FAFBFC;font-weight:600;width:40%;color:var(--ink)}
+table.meta td{color:var(--text);font-family:"SF Mono",Menlo,Consolas,monospace;font-size:12px}
+.sections{margin:0 0 13px;border:1px solid var(--border);border-radius:8px;overflow:hidden}
+.sections .s{display:flex;justify-content:space-between;gap:12px;padding:9px 13px;border-bottom:1px solid var(--border);font-size:13px}
+.sections .s:last-child{border-bottom:none}
+.sections .s b{font-weight:600}
+.sections .s span{color:var(--text)}
+.explain{border-left:3px solid var(--green);background:var(--green-neutral);padding:11px 14px;border-radius:0 6px 6px 0;font-size:13px;color:var(--text);margin:6px 0 0}
 .explain b{color:var(--ink)}
 a{color:var(--green-shade)}
-.foot{font-size:12px;color:var(--muted);margin:16px 4px 40px}
-.route{font-family:"SF Mono",Menlo,Consolas,monospace}
-.alert{border-left:3px solid var(--ink);background:#FBF0F0;padding:12px 16px;border-radius:0 6px 6px 0;font-size:14px;color:var(--ink);margin:4px 0 18px}
-.alert b{color:var(--ink)}
-.steps{margin:4px 0 18px;padding-left:22px;color:var(--text)}
-.steps li{margin:6px 0}
+.cta{display:inline-block;background:var(--accent,#2684FF);color:#fff;padding:9px 18px;border-radius:7px;text-decoration:none;font-weight:600;font-size:13px;margin:0 0 13px}
+.alert{border-left:3px solid var(--ink);background:#FBF1F0;padding:11px 14px;border-radius:0 6px 6px 0;font-size:13px;color:var(--ink);margin:0 0 13px}
+.steps{margin:0 0 13px;padding-left:20px;color:var(--text)}
+.steps li{margin:5px 0}
 .steps kbd{font-family:"SF Mono",Menlo,Consolas,monospace;font-size:12px;background:var(--page);border:1px solid var(--border);border-radius:4px;padding:1px 6px}
-.cmd{margin:4px 0 18px}
-.cmd .cmd-label{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 6px}
-.cmd code{display:block;font-family:"SF Mono",Menlo,Consolas,monospace;font-size:13px;background:var(--ink);color:var(--green);padding:14px 16px;border-radius:6px;word-break:break-all}
+.cmd{margin:0 0 13px}
+.cmd .cmd-label{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 5px}
+.cmd code{display:block;font-family:"SF Mono",Menlo,Consolas,monospace;font-size:13px;background:var(--ink);color:var(--green);padding:12px 14px;border-radius:6px;word-break:break-all}
+.hopnote{display:flex;gap:10px;align-items:center;background:var(--green-neutral);border:1px solid #BEEBD9;color:var(--green-shade);padding:9px 14px;border-radius:8px;font-size:13px;margin:12px auto 0;max-width:1040px}
+.hopnote .sp{flex:1}
+.foot{font-size:11px;color:var(--muted);margin:12px 4px 32px;max-width:1040px}
+.route{font-family:"SF Mono",Menlo,Consolas,monospace}
+.wrap{max-width:720px;margin:14px auto;padding:0 14px}
 </style>
 </head>
 <body>
-<div class="demo-banner"><span class="dot"></span><strong>Sublime Security Demo Asset</strong><span>Fabricated training page for email security demos. Static and inert: nothing on this page collects, stores or submits data.</span></div>
-<main class="wrap">
-<div class="card">
-<div class="card-head"><p class="kicker">Billing Review</p><h1>Invoice NPS-2026-04721</h1></div>
-<div class="card-body">
+<div class="demo-banner"><span class="dot"></span><strong>Sublime Security Demo Asset</strong><span class="tag">Fabricated training page for email security demos. Static and inert: nothing on this page collects, stores or submits data.</span></div>
+<div class="app">
+<header class="appbar" style="--bar:#D64B3C;--barink:#FFFFFF;--accent:#D64B3C"><span class="brand"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="18" rx="3" fill="#fff" opacity=".95"/><rect x="2" y="4" width="20" height="5" rx="3" fill="#D64B3C"/><rect x="6" y="12" width="5" height="5" rx="1" fill="#D64B3C"/></svg>Billing Review</span><span class="sep">/</span><span class="file">Invoice NPS-2026-04721</span><span class="spacer"></span><span class="presence"><span class="ava" style="background:#2684FF">AD</span><span class="ava" style="background:#12A45A">CD</span><span class="ava" style="background:#D64B3C">RT</span></span><span class="pill">Comment</span><span class="pill solid">Share</span></header>
+<div class="subbar"><span class="crumb">Billing Review <b>&rsaquo; Invoice NPS-2026-04721</b></span><span class="spacer"></span><span class="tool">Open</span><span class="tool">Details</span><span class="tool">Activity</span></div>
+<div class="layout">
+<aside class="rail"><h4>Invoice</h4><div class="row active"><span class="ico g"></span>Summary</div><div class="row"><span class="ico"></span>Line items</div><div class="row"><span class="ico"></span>Dispute</div><div class="row"><span class="ico"></span>History</div><div class="divider"></div><div class="row"><span class="ico"></span>Shared</div><div class="row"><span class="ico"></span>Recent</div></aside>
+<main class="stage">
+<p class="kicker">Billing Review</p><h1>Invoice NPS-2026-04721</h1>
 <p>Invoice summary page referenced by a calendar invite. The lure tells the reader to phone a dispute line instead of using the meeting dial-in.</p>
-<table><tr><th>Account</th><td>Tyrell Corporation (fictional)</td></tr><tr><th>Amount</th><td>$3,249.00</td></tr><tr><th>Status</th><td>Payment processed (lure wording)</td></tr><tr><th>Callback instruction in the lure</th><td>Phone billing, not the meeting dial-in</td></tr></table>
-<div class="explain">Linked from the description and URL fields of the <b>calendar ICS abuse</b> sample. The payload story lives in the calendar object; this page is only the review link.</div>
+<div class="sections"><div class="s"><b>Account</b><span>Tyrell Corporation (fictional)</span></div><div class="s"><b>Amount</b><span>$3,249.00</span></div><div class="s"><b>Status</b><span>Payment processed (lure wording)</span></div><div class="s"><b>Callback in the lure</b><span>Phone billing, not the meeting dial-in</span></div></div>
+<table class="meta"><tr><th>Reached via</th><td>Opaque short link from the calendar invite</td></tr><tr><th>Invoice</th><td>NPS-2026-04721</td></tr></table>
+<div class="explain">Linked from the description and URL fields of the <b>calendar ICS abuse</b> sample through an opaque /s/ short link. The payload story lives in the calendar object; this page is only the review link.</div>
+</main>
 </div>
 </div>
 <p class="foot">Demo route <span class="route">/billing-review/invoice/NPS-2026-04721/</span>. All names, companies and figures are fictional.</p>
-</main>
 </body>
 </html>

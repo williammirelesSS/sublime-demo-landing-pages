@@ -11,6 +11,8 @@ Every page is fabricated and inert:
 - a visible "Sublime Security Demo Asset" banner on every page
 - a strict `Content-Security-Policy` meta tag (`default-src 'none'`, `form-action 'none'`)
 - `noindex, nofollow` meta on every page and a `robots.txt` that disallows everything
+- dense product-style file chrome sized so a roughly 700 by 520 link-preview viewport is
+  filled with useful file UI rather than a small card over blank space
 
 All names, companies, invoice numbers and phone numbers are fictional.
 
@@ -50,12 +52,16 @@ Run it locally against the live site:
 python3 check_site.py --base https://williammirelesss.github.io/sublime-demo-landing-pages/
 ```
 
-## Redirects
+## Opaque hop paths
 
-GitHub Pages cannot send HTTP 301 or 302 responses. The one hop page,
-`/go/viewer/`, is an HTML meta refresh (`content="0; url=..."`) with a visible
-fallback link. Link detonation that renders pages follows it; a client that does
-not render HTML sees a 200 hop page with a link. It is not a server redirect.
+GitHub Pages cannot send HTTP 301 or 302 responses. Stable opaque paths under
+`/s/<code>/` are HTTP 200 pages with an immediate HTML meta refresh
+(`content="0; url=..."`) and a visible fallback link. Each hop page renders the
+same dense file UI as its final page, so clients that do not follow the refresh
+still capture a complete preview. QR, Teams, each calendar target, and DocuSign
+have unique codes. The Drive- and Figma-style samples use direct file paths.
+
+`/go/viewer/` remains live only for already-ingested historical copies.
 
 ## Limits
 

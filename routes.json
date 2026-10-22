@@ -7,6 +7,26 @@
       "marker": "Demo landing pages"
     },
     {
+      "path": "drive/file/d/1A3fRQ2026FacilitiesRFQ/view/",
+      "kind": "page",
+      "marker": "Q3_2026_Facilities_RFQ.pdf"
+    },
+    {
+      "path": "drive/file/d/1A3fRQ2026FacilitiesRFQ/preview/",
+      "kind": "page",
+      "marker": "Q3_2026_Facilities_RFQ.pdf"
+    },
+    {
+      "path": "drive/drive/folders/0B2vRFQProcurementQ3/",
+      "kind": "page",
+      "marker": "Procurement: Q3 RFQ (mirror)"
+    },
+    {
+      "path": "figma/design/Fq2Kp9RmZ3Lw/RFQ-Documentation-Q3-2026/",
+      "kind": "page",
+      "marker": "RFQ Documentation, Q3 2026"
+    },
+    {
       "path": "rfq-portal/",
       "kind": "page",
       "marker": "Secure Document Portal"
@@ -20,6 +40,16 @@
       "path": "document-viewer/",
       "kind": "page",
       "marker": "Online Document Viewer"
+    },
+    {
+      "path": "shared-workspace/rfq-documentation-q3-2026/",
+      "kind": "page",
+      "marker": "RFQ Documentation, Q3 2026"
+    },
+    {
+      "path": "onedrive-mirror/rfq-q3-2026/",
+      "kind": "page",
+      "marker": "Mirror: RFQ Q3 2026 pack"
     },
     {
       "path": "account-verify/",
@@ -58,16 +88,6 @@
       "marker": "Voicemail settings"
     },
     {
-      "path": "shared-workspace/rfq-documentation-q3-2026/",
-      "kind": "page",
-      "marker": "RFQ Documentation, Q3 2026"
-    },
-    {
-      "path": "onedrive-mirror/rfq-q3-2026/",
-      "kind": "page",
-      "marker": "Mirror: RFQ Q3 2026 pack"
-    },
-    {
       "path": "remittance/updated-account/",
       "kind": "page",
       "marker": "Updated remittance advice"
@@ -86,6 +106,42 @@
       "path": "esign/review/",
       "kind": "page",
       "marker": "Q1 Executive Compensation Agreement"
+    },
+    {
+      "path": "s/hVr2N9/",
+      "kind": "meta-refresh",
+      "marker": "Protected document notice",
+      "refresh_to": "account-verify/"
+    },
+    {
+      "path": "s/A9GLwL/",
+      "kind": "meta-refresh",
+      "marker": "Missed message from Rachael Demo",
+      "refresh_to": "teams-message/"
+    },
+    {
+      "path": "s/XGpj8q/",
+      "kind": "meta-refresh",
+      "marker": "Invoice NPS-2026-04721",
+      "refresh_to": "billing-review/invoice/NPS-2026-04721/"
+    },
+    {
+      "path": "s/BtD7RR/",
+      "kind": "meta-refresh",
+      "marker": "Dispute invoice NPS-2026-04721",
+      "refresh_to": "billing-review/dispute/"
+    },
+    {
+      "path": "s/nNiqko/",
+      "kind": "meta-refresh",
+      "marker": "Invoice NPS-2026-04721",
+      "refresh_to": "billing-review/invoice/NPS-2026-04721/"
+    },
+    {
+      "path": "s/tWWgaG/",
+      "kind": "meta-refresh",
+      "marker": "Q1 Executive Compensation Agreement",
+      "refresh_to": "esign/review/"
     },
     {
       "path": "go/viewer/",
