@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self' data:; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.google-shell{max-width:920px;min-height:438px;margin:12px auto;padding:18px 22px;background:#fff;border:1px solid #dadce0;border-radius:8px;box-shadow:0 1px 3px rgba(60,64,67,.18);display:flex;align-items:stretch;gap:24px}
+.google-context{flex:1;min-width:0;padding:28px 8px 20px 18px;display:flex;flex-direction:column;justify-content:center}
+.google-context h1{font-size:25px;font-weight:400;color:#202124;margin:12px 0}
+.google-context p{color:#5f6368;font-size:14px;max-width:390px}
+.g-logo{display:inline-flex;align-items:baseline;font-size:25px;font-weight:600;letter-spacing:-1.5px;font-family:Arial,sans-serif}
+.g-logo .b{color:#4285F4}.g-logo .r{color:#EA4335}.g-logo .y{color:#FBBC05}.g-logo .g{color:#34A853}
+.signin-card{width:350px;flex:none;border:1px solid #dadce0;border-radius:8px;padding:28px 30px 24px;text-align:center;align-self:center;background:#fff}
+.signin-card.compact{width:310px;padding:20px 24px}
+.signin-card h2{font-size:23px;font-weight:400;color:#202124;margin:14px 0 5px}
+.signin-card p{color:#5f6368;margin:0 0 18px}
+.avatar-mock{width:68px;height:68px;border-radius:50%;background:#e4e7eb;margin:16px auto;position:relative}
+.avatar-mock:before{content:"";position:absolute;left:23px;top:14px;width:22px;height:22px;border-radius:50%;background:#b8bdc4}
+.avatar-mock:after{content:"";position:absolute;left:13px;bottom:9px;width:42px;height:22px;border-radius:24px 24px 10px 10px;background:#b8bdc4}
+.visual-field{height:43px;border:1px solid #b9bec5;border-radius:3px;text-align:left;padding:10px 12px;color:#777;background:#f8f9fa;margin:9px 0;font-size:13px}
+.visual-field.disabled{color:#9aa0a6}
+.visual-button{height:42px;border-radius:3px;background:#4285f4;color:#fff;padding:11px 12px;font-weight:600;margin:12px 0 8px;opacity:.72}
+.inert-note{font-size:11px!important;color:#006d49!important;background:#f0fbf6;border:1px solid #bee8d7;border-radius:5px;padding:7px!important;margin:12px 0 0!important}
+.careers-shell{max-width:940px;min-height:438px;margin:12px auto;background:#fff;border:1px solid #dadce0;border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(60,64,67,.18)}
+.careers-nav{display:flex;align-items:center;gap:18px;padding:13px 24px;border-bottom:1px solid #e5e7eb;color:#5f6368}
+.careers-nav .spacer{flex:1}.careers-nav .navitem{font-size:13px}
+.careers-body{display:grid;grid-template-columns:1.35fr .9fr;gap:22px;padding:25px}
+.careers-hero{background:#e8f0fe;border-radius:8px;padding:25px;min-height:330px}
+.careers-hero h1{font-size:28px;font-weight:400;color:#202124;margin:7px 0 12px}
+.careers-hero p{font-size:14px;color:#5f6368;max-width:510px}
+.job-card{border:1px solid #dadce0;border-radius:8px;padding:19px;background:#fff;align-self:stretch}
+.job-card h2{font-size:18px;font-weight:500;margin:5px 0 13px}
+.job-card .meta-row{padding:8px 0;border-bottom:1px solid #eef0f2;color:#5f6368;font-size:13px}
+.job-card .static-link{display:block;background:#1a73e8;color:#fff;text-align:center;text-decoration:none;border-radius:4px;padding:11px;margin-top:18px;font-weight:600}
+.captcha-chain{max-width:940px;min-height:438px;margin:12px auto;padding:22px;background:#f8f9fa;border:1px solid #dadce0;border-radius:8px;box-shadow:0 1px 3px rgba(60,64,67,.18)}
+.chain-title{text-align:center;margin:0 0 15px}.chain-title h1{font-size:21px;margin:3px 0}.chain-title p{margin:0;color:#5f6368;font-size:12px}
+.chain-grid{display:grid;grid-template-columns:1fr 50px 1fr;align-items:center;gap:12px}
+.captcha-card{background:#fff;border:1px solid #dadce0;border-radius:7px;padding:24px;min-height:292px;display:flex;flex-direction:column;justify-content:center}
+.captcha-box{display:flex;align-items:center;gap:14px;border:1px solid #c7cbd1;background:#fafafa;padding:18px;margin:16px 0}
+.captcha-square{width:28px;height:28px;border:2px solid #9aa0a6;background:#fff;flex:none}
+.captcha-art{margin-left:auto;width:56px;height:56px;background:linear-gradient(135deg,#4285f4 50%,#34a853 50%);border-radius:5px}
+.chain-arrow{text-align:center;font-size:28px;color:#5f6368}.step-label{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:#006d49;font-weight:700}
+@media(max-width:620px){.google-shell{display:block}.signin-card{width:100%}.careers-body,.chain-grid{display:block}.job-card{margin-top:14px}.chain-arrow{transform:rotate(90deg);margin:8px}.google-context{padding:12px}}
+</style>
+<title>Static CAPTCHA splash | Sublime Security Demo Asset</title>
+<style>
+:root{--green:#04E69B;--green-neutral:#F0FBF6;--green-shade:#006D49;--ink:#0B0B0B;--text:#575757;--muted:#8A8A8A;--border:#E2E4E8;--page:#F3F4F6;--panel:#FFFFFF}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--page);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;font-size:14px;line-height:1.5}
+.demo-banner{background:var(--ink);color:#fff;padding:7px 16px;font-size:12px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.demo-banner strong{color:var(--green);letter-spacing:.02em}
+.demo-banner .dot{width:9px;height:9px;border-radius:50%;background:var(--green);flex:none}
+.demo-banner .tag{color:#C9C9C9}
+.app{max-width:1040px;margin:12px auto;padding:0 12px}
+.appbar{display:flex;align-items:center;gap:14px;background:var(--bar,#111);color:var(--barink,#fff);padding:10px 16px;border-radius:10px 10px 0 0}
+.appbar .brand{display:flex;align-items:center;gap:9px;font-weight:700;font-size:15px;letter-spacing:.01em}
+.appbar .brand svg{flex:none;display:block}
+.appbar .file{font-weight:600;font-size:14px;opacity:.95;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.appbar .sep{opacity:.4}
+.appbar .spacer{flex:1}
+.appbar .presence{display:flex;gap:-6px}
+.appbar .ava{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;border:2px solid var(--bar,#111);margin-left:-6px}
+.appbar .pill{font-size:12px;font-weight:600;padding:6px 12px;border-radius:7px;background:rgba(255,255,255,.16);color:inherit}
+.appbar .pill.solid{background:var(--accent,#2684FF);color:#fff}
+.subbar{display:flex;align-items:center;gap:10px;background:var(--panel);border:1px solid var(--border);border-top:none;padding:8px 16px;font-size:12px;color:var(--muted);flex-wrap:wrap}
+.subbar .crumb{color:var(--text);font-weight:500}
+.subbar .crumb b{color:var(--ink)}
+.subbar .tool{padding:4px 10px;border:1px solid var(--border);border-radius:6px;color:var(--text);background:#fff;font-weight:500}
+.subbar .spacer{flex:1}
+.layout{display:flex;gap:14px;background:var(--panel);border:1px solid var(--border);border-top:none;border-radius:0 0 10px 10px;padding:14px;min-height:382px}
+.rail{flex:none;width:176px;font-size:12px}
+.rail h4{margin:0 0 8px;font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted)}
+.rail .row{display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:6px;color:var(--text)}
+.rail .row.active{background:var(--green-neutral);color:var(--green-shade);font-weight:600}
+.rail .row .ico{width:16px;height:16px;flex:none;border-radius:3px;background:var(--border)}
+.rail .row .ico.g{background:var(--green)}
+.rail .divider{height:1px;background:var(--border);margin:10px 0}
+.stage{flex:1;min-width:0}
+.kicker{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--green-shade);font-weight:700;margin:0 0 3px}
+h1{font-size:19px;margin:0 0 10px;font-weight:600;line-height:1.25}
+.stage p{color:var(--text);margin:0 0 11px}
+.doc{display:flex;gap:12px;align-items:center;border:1px solid var(--border);border-radius:8px;padding:11px 13px;margin:0 0 13px;background:#fff}
+.doc svg{flex:none}
+.doc strong{display:block;font-size:14px}
+.doc span{font-size:12px;color:var(--muted)}
+.frames{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin:0 0 13px}
+.frame{border:1px solid var(--border);border-radius:7px;overflow:hidden;background:#fff}
+.frame .thumb{height:92px;background:linear-gradient(180deg,#fbfbfc,#eef0f3);border-bottom:1px solid var(--border);position:relative}
+.frame .thumb .ln{position:absolute;left:12px;right:12px;height:6px;border-radius:3px;background:#E4E7EB}
+.frame .thumb .ln.a{top:16px}.frame .thumb .ln.b{top:30px;right:40px}.frame .thumb .ln.c{top:44px;right:26px}
+.frame .thumb .chip{position:absolute;left:12px;bottom:12px;width:34px;height:20px;border-radius:4px;background:var(--accent,#2684FF);opacity:.85}
+.frame .cap{padding:7px 10px;font-size:12px}
+.frame .cap b{display:block;font-weight:600}
+.frame .cap span{color:var(--muted);font-size:11px}
+table.meta{width:100%;border-collapse:collapse;margin:4px 0 13px;font-size:13px}
+table.meta th,table.meta td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--border);vertical-align:top}
+table.meta th{background:#FAFBFC;font-weight:600;width:40%;color:var(--ink)}
+table.meta td{color:var(--text);font-family:"SF Mono",Menlo,Consolas,monospace;font-size:12px}
+.sections{margin:0 0 13px;border:1px solid var(--border);border-radius:8px;overflow:hidden}
+.sections .s{display:flex;justify-content:space-between;gap:12px;padding:9px 13px;border-bottom:1px solid var(--border);font-size:13px}
+.sections .s:last-child{border-bottom:none}
+.sections .s b{font-weight:600}
+.sections .s span{color:var(--text)}
+.explain{border-left:3px solid var(--green);background:var(--green-neutral);padding:11px 14px;border-radius:0 6px 6px 0;font-size:13px;color:var(--text);margin:6px 0 0}
+.explain b{color:var(--ink)}
+a{color:var(--green-shade)}
+.cta{display:inline-block;background:var(--accent,#2684FF);color:#fff;padding:9px 18px;border-radius:7px;text-decoration:none;font-weight:600;font-size:13px;margin:0 0 13px}
+.alert{border-left:3px solid var(--ink);background:#FBF1F0;padding:11px 14px;border-radius:0 6px 6px 0;font-size:13px;color:var(--ink);margin:0 0 13px}
+.steps{margin:0 0 13px;padding-left:20px;color:var(--text)}
+.steps li{margin:5px 0}
+.steps kbd{font-family:"SF Mono",Menlo,Consolas,monospace;font-size:12px;background:var(--page);border:1px solid var(--border);border-radius:4px;padding:1px 6px}
+.cmd{margin:0 0 13px}
+.cmd .cmd-label{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 5px}
+.cmd code{display:block;font-family:"SF Mono",Menlo,Consolas,monospace;font-size:13px;background:var(--ink);color:var(--green);padding:12px 14px;border-radius:6px;word-break:break-all}
+.hopnote{display:flex;gap:10px;align-items:center;background:var(--green-neutral);border:1px solid #BEEBD9;color:var(--green-shade);padding:9px 14px;border-radius:8px;font-size:13px;margin:12px auto 0;max-width:1040px}
+.hopnote .sp{flex:1}
+.foot{font-size:11px;color:var(--muted);margin:12px 4px 32px;max-width:1040px}
+.route{font-family:"SF Mono",Menlo,Consolas,monospace}
+.wrap{max-width:720px;margin:14px auto;padding:0 14px}
+</style>
+</head>
+<body>
+<div class="demo-banner"><span class="dot"></span><strong>Sublime Security Demo Asset</strong><span class="tag">Fabricated training page for email security demos. Static and inert: nothing on this page collects, stores or submits data.</span></div>
+<main class="captcha-chain" data-dense-preview="700x520"><div class="chain-title"><p class="step-label">Google Cloud Application Integration abuse demo</p><h1>Static CAPTCHA splash to inert sign-in illustration</h1><p>Both stages are visible pictures. Nothing can be clicked, completed, entered, or submitted.</p></div><div class="chain-grid"><section class="captcha-card"><p class="step-label">Step 1, static picture</p><h2>Verify you are human</h2><div class="captcha-box"><span class="captcha-square" aria-hidden="true"></span><strong>I am not a robot</strong><span class="captcha-art" aria-hidden="true"></span></div><p>This CAPTCHA-like panel has no checkbox control and performs no bot detection.</p><p class="inert-note">Non-interactive illustration. No challenge can be completed.</p></section><div class="chain-arrow" aria-hidden="true">&rarr;</div><section class="signin-card compact" aria-label="Disabled sign-in illustration"><span class="g-logo" aria-label="Google"><span class="b">G</span><span class="r">o</span><span class="y">o</span><span class="b">g</span><span class="g">l</span><span class="r">e</span></span><h2>One account. All of Google.</h2><p>Sign in to continue to Gmail</p><div class="avatar-mock" aria-hidden="true"></div><div class="visual-field" aria-disabled="true">Enter your email</div><div class="visual-field disabled" aria-disabled="true">Password</div><div class="visual-button" aria-disabled="true">Sign in</div><p class="inert-note">Visual mock only. Disabled, non-editable, and collects nothing.</p></section></div></main>
+<p class="foot">Demo route <span class="route">/google/cloud/application-integration/captcha/</span>. All names, companies and figures are fictional.</p>
+</body>
+</html>

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build the static demo landing pages into docs/.
 
-Version: 2026.10.22.1
+Version: 2026.10.23.1
 
 Every page is fabricated, inert demo content: static HTML and inline CSS only.
 No forms, inputs, buttons, scripts, iframes, external assets, trackers or cookies.
@@ -157,6 +157,46 @@ a{color:var(--green-shade)}
 .wrap{max-width:720px;margin:14px auto;padding:0 14px}
 """.strip()
 
+GOOGLE_STYLE = """
+.google-shell{max-width:920px;min-height:438px;margin:12px auto;padding:18px 22px;background:#fff;border:1px solid #dadce0;border-radius:8px;box-shadow:0 1px 3px rgba(60,64,67,.18);display:flex;align-items:stretch;gap:24px}
+.google-context{flex:1;min-width:0;padding:28px 8px 20px 18px;display:flex;flex-direction:column;justify-content:center}
+.google-context h1{font-size:25px;font-weight:400;color:#202124;margin:12px 0}
+.google-context p{color:#5f6368;font-size:14px;max-width:390px}
+.g-logo{display:inline-flex;align-items:baseline;font-size:25px;font-weight:600;letter-spacing:-1.5px;font-family:Arial,sans-serif}
+.g-logo .b{color:#4285F4}.g-logo .r{color:#EA4335}.g-logo .y{color:#FBBC05}.g-logo .g{color:#34A853}
+.signin-card{width:350px;flex:none;border:1px solid #dadce0;border-radius:8px;padding:28px 30px 24px;text-align:center;align-self:center;background:#fff}
+.signin-card.compact{width:310px;padding:20px 24px}
+.signin-card h2{font-size:23px;font-weight:400;color:#202124;margin:14px 0 5px}
+.signin-card p{color:#5f6368;margin:0 0 18px}
+.avatar-mock{width:68px;height:68px;border-radius:50%;background:#e4e7eb;margin:16px auto;position:relative}
+.avatar-mock:before{content:"";position:absolute;left:23px;top:14px;width:22px;height:22px;border-radius:50%;background:#b8bdc4}
+.avatar-mock:after{content:"";position:absolute;left:13px;bottom:9px;width:42px;height:22px;border-radius:24px 24px 10px 10px;background:#b8bdc4}
+.visual-field{height:43px;border:1px solid #b9bec5;border-radius:3px;text-align:left;padding:10px 12px;color:#777;background:#f8f9fa;margin:9px 0;font-size:13px}
+.visual-field.disabled{color:#9aa0a6}
+.visual-button{height:42px;border-radius:3px;background:#4285f4;color:#fff;padding:11px 12px;font-weight:600;margin:12px 0 8px;opacity:.72}
+.inert-note{font-size:11px!important;color:#006d49!important;background:#f0fbf6;border:1px solid #bee8d7;border-radius:5px;padding:7px!important;margin:12px 0 0!important}
+.careers-shell{max-width:940px;min-height:438px;margin:12px auto;background:#fff;border:1px solid #dadce0;border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(60,64,67,.18)}
+.careers-nav{display:flex;align-items:center;gap:18px;padding:13px 24px;border-bottom:1px solid #e5e7eb;color:#5f6368}
+.careers-nav .spacer{flex:1}.careers-nav .navitem{font-size:13px}
+.careers-body{display:grid;grid-template-columns:1.35fr .9fr;gap:22px;padding:25px}
+.careers-hero{background:#e8f0fe;border-radius:8px;padding:25px;min-height:330px}
+.careers-hero h1{font-size:28px;font-weight:400;color:#202124;margin:7px 0 12px}
+.careers-hero p{font-size:14px;color:#5f6368;max-width:510px}
+.job-card{border:1px solid #dadce0;border-radius:8px;padding:19px;background:#fff;align-self:stretch}
+.job-card h2{font-size:18px;font-weight:500;margin:5px 0 13px}
+.job-card .meta-row{padding:8px 0;border-bottom:1px solid #eef0f2;color:#5f6368;font-size:13px}
+.job-card .static-link{display:block;background:#1a73e8;color:#fff;text-align:center;text-decoration:none;border-radius:4px;padding:11px;margin-top:18px;font-weight:600}
+.captcha-chain{max-width:940px;min-height:438px;margin:12px auto;padding:22px;background:#f8f9fa;border:1px solid #dadce0;border-radius:8px;box-shadow:0 1px 3px rgba(60,64,67,.18)}
+.chain-title{text-align:center;margin:0 0 15px}.chain-title h1{font-size:21px;margin:3px 0}.chain-title p{margin:0;color:#5f6368;font-size:12px}
+.chain-grid{display:grid;grid-template-columns:1fr 50px 1fr;align-items:center;gap:12px}
+.captcha-card{background:#fff;border:1px solid #dadce0;border-radius:7px;padding:24px;min-height:292px;display:flex;flex-direction:column;justify-content:center}
+.captcha-box{display:flex;align-items:center;gap:14px;border:1px solid #c7cbd1;background:#fafafa;padding:18px;margin:16px 0}
+.captcha-square{width:28px;height:28px;border:2px solid #9aa0a6;background:#fff;flex:none}
+.captcha-art{margin-left:auto;width:56px;height:56px;background:linear-gradient(135deg,#4285f4 50%,#34a853 50%);border-radius:5px}
+.chain-arrow{text-align:center;font-size:28px;color:#5f6368}.step-label{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:#006d49;font-weight:700}
+@media(max-width:620px){.google-shell{display:block}.signin-card{width:100%}.careers-body,.chain-grid{display:block}.job-card{margin-top:14px}.chain-arrow{transform:rotate(90deg);margin:8px}.google-context{padding:12px}}
+""".strip()
+
 DOC_ICON = (
     '<svg width="34" height="42" viewBox="0 0 40 48" aria-hidden="true">'
     '<path d="M4 2h22l10 10v32a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z" '
@@ -212,6 +252,12 @@ DOC_MARK = (
     '<rect x="5" y="6" width="10" height="2" fill="#04E69B"/>'
     '<rect x="5" y="10" width="10" height="2" fill="#D6D6D6"/>'
     '<rect x="5" y="14" width="7" height="2" fill="#D6D6D6"/></svg>'
+)
+
+GOOGLE_WORDMARK = (
+    '<span class="g-logo" aria-label="Google">'
+    '<span class="b">G</span><span class="r">o</span><span class="y">o</span>'
+    '<span class="b">g</span><span class="g">l</span><span class="r">e</span></span>'
 )
 
 CHROMES: dict[str, dict] = {
@@ -271,6 +317,7 @@ PAGES: list[dict] = [
     # ---- Sample 02: Google Drive-style secure document share (direct, no hop) ----
     {
         "route": "drive/file/d/1A3fRQ2026FacilitiesRFQ/view/",
+        "content_kind": "google-login",
         "chrome": "drive",
         "kicker": "Google Drive &middot; file view",
         "heading": "Q3_2026_Facilities_RFQ.pdf",
@@ -305,6 +352,7 @@ PAGES: list[dict] = [
     },
     {
         "route": "drive/file/d/1A3fRQ2026FacilitiesRFQ/preview/",
+        "content_kind": "google-login",
         "chrome": "drive",
         "kicker": "Google Drive &middot; quick preview",
         "heading": "Q3_2026_Facilities_RFQ.pdf",
@@ -336,6 +384,7 @@ PAGES: list[dict] = [
     },
     {
         "route": "drive/drive/folders/0B2vRFQProcurementQ3/",
+        "content_kind": "google-login",
         "chrome": "drive",
         "kicker": "Google Drive &middot; shared folder",
         "heading": "Procurement: Q3 RFQ (mirror)",
@@ -358,6 +407,27 @@ PAGES: list[dict] = [
         "sample. Both the displayed folder path and the real destination are inert demo pages on "
         "the controlled host.",
         "marker": "Procurement: Q3 RFQ (mirror)",
+    },
+    # ---- Shared inert Google sign-in illustration and blog-based scenarios ----
+    {
+        "route": "google/accounts/ServiceLogin/",
+        "content_kind": "google-login",
+        "heading": "Inert Google sign-in illustration",
+        "signin_for": "Google services",
+        "context": "A fabricated, disabled sign-in picture used by multiple synthetic demo stories.",
+        "marker": "Inert Google sign-in illustration",
+    },
+    {
+        "route": "google/careers/jobs/results/GBR-74291/",
+        "content_kind": "google-careers",
+        "heading": "Google Careers demo opportunity",
+        "marker": "Google Careers demo opportunity",
+    },
+    {
+        "route": "google/cloud/application-integration/captcha/",
+        "content_kind": "google-captcha-login",
+        "heading": "Static CAPTCHA splash",
+        "marker": "Static CAPTCHA splash",
     },
     # ---- Sample 01: Figma-style shared workspace (direct, no hop) ----
     {
@@ -755,6 +825,7 @@ SHORT_LINKS: list[dict] = [
     {"id": "calendar_embedded_dispute", "target": "billing-review/dispute/"},
     {"id": "calendar_tiff_portal_metadata", "target": "billing-review/invoice/NPS-2026-04721/"},
     {"id": "esign_inline_qr", "target": "esign/review/"},
+    {"id": "google_cloud_captcha", "target": "google/cloud/application-integration/captcha/"},
 ]
 
 # Legacy single hop kept live so earlier ingested copies of sample 02 still resolve.
@@ -785,6 +856,10 @@ def head(title: str, extra: str = "") -> str:
         f"<title>{html.escape(title)} | {BANNER_MARKER}</title>\n"
         f"<style>\n{STYLE}\n</style>\n</head>\n"
     )
+
+
+def google_head(title: str, extra: str = "") -> str:
+    return head(title, extra + f"<style>\n{GOOGLE_STYLE}\n</style>\n")
 
 
 def banner() -> str:
@@ -898,7 +973,110 @@ def stage(page: dict) -> str:
     return "".join(parts)
 
 
+def google_signin_card(label: str, compact: bool = False) -> str:
+    compact_class = " compact" if compact else ""
+    return (
+        f'<section class="signin-card{compact_class}" aria-label="Disabled sign-in illustration">'
+        f"{GOOGLE_WORDMARK}<h2>One account. All of Google.</h2>"
+        f"<p>Sign in to continue to {html.escape(label)}</p>"
+        '<div class="avatar-mock" aria-hidden="true"></div>'
+        '<div class="visual-field" aria-disabled="true">Enter your email</div>'
+        '<div class="visual-field disabled" aria-disabled="true">Password</div>'
+        '<div class="visual-button" aria-disabled="true">Sign in</div>'
+        '<p class="inert-note">Visual mock only. Disabled, non-editable, and collects nothing.</p>'
+        "</section>"
+    )
+
+
+def render_google_login(page: dict, extra_head: str, hopnote: str) -> str:
+    label = page.get("signin_for", "Google Drive")
+    context = page.get(
+        "context",
+        f"The shared item <b>{page['heading']}</b> is represented by this fabricated sign-in picture. "
+        "The original route remains stable for existing synthetic email fixtures.",
+    )
+    return (
+        google_head(page["heading"], extra_head)
+        + "<body>\n"
+        + banner()
+        + hopnote
+        + '<main class="google-shell" data-dense-preview="700x520">'
+        + '<section class="google-context">'
+        + GOOGLE_WORDMARK
+        + f"<h1>{page['heading']}</h1><p>{context}</p>"
+        + '<p class="inert-note">Sublime Security demo asset: fabricated, inert, and safe for link preview.</p>'
+        + "</section>"
+        + google_signin_card(label)
+        + "</main>\n"
+        + footer(page["route"])
+        + "</body>\n</html>\n"
+    )
+
+
+def render_google_careers(page: dict, extra_head: str, hopnote: str) -> str:
+    signin_path = "../../../../accounts/ServiceLogin/"
+    return (
+        google_head(page["heading"], extra_head)
+        + "<body>\n"
+        + banner()
+        + hopnote
+        + '<main class="careers-shell" data-dense-preview="700x520">'
+        + '<header class="careers-nav">'
+        + GOOGLE_WORDMARK
+        + '<strong>Careers</strong><span class="spacer"></span>'
+        + '<span class="navitem">Teams</span><span class="navitem">Locations</span><span class="navitem">Jobs</span></header>'
+        + '<div class="careers-body"><section class="careers-hero">'
+        + '<p class="step-label">Fabricated recruiting outreach</p>'
+        + '<h1>Build safer products with our demo team</h1>'
+        + '<p>A fictional talent partner invited Casey Demo to review a fabricated role and schedule a conversation. '
+        + 'This static page mirrors the visual handoff described in Sublime&rsquo;s public Google Careers research.</p>'
+        + '<div class="sections"><div class="s"><b>Talent partner</b><span>Jordan Example</span></div>'
+        + '<div class="s"><b>Location</b><span>London, United Kingdom</span></div>'
+        + '<div class="s"><b>Reference</b><span>GBR-74291-DEMO</span></div></div>'
+        + '</section><aside class="job-card">'
+        + '<p class="step-label">Demo role</p><h2>Customer Security Specialist</h2>'
+        + '<div class="meta-row">Security &amp; Trust</div><div class="meta-row">Hybrid, London</div>'
+        + '<div class="meta-row">Fictional opportunity</div>'
+        + f'<a class="static-link" href="{signin_path}">Continue to inert sign-in illustration</a>'
+        + '<p class="inert-note">Same-host demo link. No application, scheduling, or data collection.</p>'
+        + "</aside></div></main>\n"
+        + footer(page["route"])
+        + "</body>\n</html>\n"
+    )
+
+
+def render_google_captcha(page: dict, extra_head: str, hopnote: str) -> str:
+    return (
+        google_head(page["heading"], extra_head)
+        + "<body>\n"
+        + banner()
+        + hopnote
+        + '<main class="captcha-chain" data-dense-preview="700x520">'
+        + '<div class="chain-title"><p class="step-label">Google Cloud Application Integration abuse demo</p>'
+        + '<h1>Static CAPTCHA splash to inert sign-in illustration</h1>'
+        + '<p>Both stages are visible pictures. Nothing can be clicked, completed, entered, or submitted.</p></div>'
+        + '<div class="chain-grid"><section class="captcha-card">'
+        + '<p class="step-label">Step 1, static picture</p><h2>Verify you are human</h2>'
+        + '<div class="captcha-box"><span class="captcha-square" aria-hidden="true"></span>'
+        + '<strong>I am not a robot</strong><span class="captcha-art" aria-hidden="true"></span></div>'
+        + '<p>This CAPTCHA-like panel has no checkbox control and performs no bot detection.</p>'
+        + '<p class="inert-note">Non-interactive illustration. No challenge can be completed.</p>'
+        + '</section><div class="chain-arrow" aria-hidden="true">&rarr;</div>'
+        + google_signin_card("Gmail", compact=True)
+        + "</div></main>\n"
+        + footer(page["route"])
+        + "</body>\n</html>\n"
+    )
+
+
 def render_page(page: dict, extra_head: str = "", hopnote: str = "") -> str:
+    content_kind = page.get("content_kind")
+    if content_kind == "google-login":
+        return render_google_login(page, extra_head, hopnote)
+    if content_kind == "google-careers":
+        return render_google_careers(page, extra_head, hopnote)
+    if content_kind == "google-captcha-login":
+        return render_google_captcha(page, extra_head, hopnote)
     chrome = CHROMES[page["chrome"]]
     parts = [head(page["heading"], extra_head), "<body>\n", banner()]
     if hopnote:
@@ -1017,12 +1195,24 @@ def main() -> int:
     (OUT / "index.html").write_text(render_index(), encoding="utf-8")
     (OUT / "404.html").write_text(render_404(), encoding="utf-8")
 
-    routes = [{"path": "", "kind": "page", "marker": "Demo landing pages"}]
+    routes = [
+        {
+            "path": "",
+            "kind": "page",
+            "content_kind": "catalog",
+            "marker": "Demo landing pages",
+        }
+    ]
     for page in PAGES:
         target = OUT / page["route"] / "index.html"
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(render_page(page), encoding="utf-8")
-        route = {"path": page["route"], "kind": "page", "marker": page["marker"]}
+        route = {
+            "path": page["route"],
+            "kind": "page",
+            "content_kind": page.get("content_kind", "standard"),
+            "marker": page["marker"],
+        }
         if page.get("command"):
             route["kind"] = "clickfix"
             route["command"] = page["command"]
@@ -1037,6 +1227,7 @@ def main() -> int:
             {
                 "path": route_path,
                 "kind": "meta-refresh",
+                "content_kind": _PAGES_BY_ROUTE[link["target"]].get("content_kind", "standard"),
                 "marker": _PAGES_BY_ROUTE[link["target"]]["marker"],
                 "refresh_to": link["target"],
             }

@@ -6,6 +6,45 @@
 <meta name="referrer" content="no-referrer">
 <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.google-shell{max-width:920px;min-height:438px;margin:12px auto;padding:18px 22px;background:#fff;border:1px solid #dadce0;border-radius:8px;box-shadow:0 1px 3px rgba(60,64,67,.18);display:flex;align-items:stretch;gap:24px}
+.google-context{flex:1;min-width:0;padding:28px 8px 20px 18px;display:flex;flex-direction:column;justify-content:center}
+.google-context h1{font-size:25px;font-weight:400;color:#202124;margin:12px 0}
+.google-context p{color:#5f6368;font-size:14px;max-width:390px}
+.g-logo{display:inline-flex;align-items:baseline;font-size:25px;font-weight:600;letter-spacing:-1.5px;font-family:Arial,sans-serif}
+.g-logo .b{color:#4285F4}.g-logo .r{color:#EA4335}.g-logo .y{color:#FBBC05}.g-logo .g{color:#34A853}
+.signin-card{width:350px;flex:none;border:1px solid #dadce0;border-radius:8px;padding:28px 30px 24px;text-align:center;align-self:center;background:#fff}
+.signin-card.compact{width:310px;padding:20px 24px}
+.signin-card h2{font-size:23px;font-weight:400;color:#202124;margin:14px 0 5px}
+.signin-card p{color:#5f6368;margin:0 0 18px}
+.avatar-mock{width:68px;height:68px;border-radius:50%;background:#e4e7eb;margin:16px auto;position:relative}
+.avatar-mock:before{content:"";position:absolute;left:23px;top:14px;width:22px;height:22px;border-radius:50%;background:#b8bdc4}
+.avatar-mock:after{content:"";position:absolute;left:13px;bottom:9px;width:42px;height:22px;border-radius:24px 24px 10px 10px;background:#b8bdc4}
+.visual-field{height:43px;border:1px solid #b9bec5;border-radius:3px;text-align:left;padding:10px 12px;color:#777;background:#f8f9fa;margin:9px 0;font-size:13px}
+.visual-field.disabled{color:#9aa0a6}
+.visual-button{height:42px;border-radius:3px;background:#4285f4;color:#fff;padding:11px 12px;font-weight:600;margin:12px 0 8px;opacity:.72}
+.inert-note{font-size:11px!important;color:#006d49!important;background:#f0fbf6;border:1px solid #bee8d7;border-radius:5px;padding:7px!important;margin:12px 0 0!important}
+.careers-shell{max-width:940px;min-height:438px;margin:12px auto;background:#fff;border:1px solid #dadce0;border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(60,64,67,.18)}
+.careers-nav{display:flex;align-items:center;gap:18px;padding:13px 24px;border-bottom:1px solid #e5e7eb;color:#5f6368}
+.careers-nav .spacer{flex:1}.careers-nav .navitem{font-size:13px}
+.careers-body{display:grid;grid-template-columns:1.35fr .9fr;gap:22px;padding:25px}
+.careers-hero{background:#e8f0fe;border-radius:8px;padding:25px;min-height:330px}
+.careers-hero h1{font-size:28px;font-weight:400;color:#202124;margin:7px 0 12px}
+.careers-hero p{font-size:14px;color:#5f6368;max-width:510px}
+.job-card{border:1px solid #dadce0;border-radius:8px;padding:19px;background:#fff;align-self:stretch}
+.job-card h2{font-size:18px;font-weight:500;margin:5px 0 13px}
+.job-card .meta-row{padding:8px 0;border-bottom:1px solid #eef0f2;color:#5f6368;font-size:13px}
+.job-card .static-link{display:block;background:#1a73e8;color:#fff;text-align:center;text-decoration:none;border-radius:4px;padding:11px;margin-top:18px;font-weight:600}
+.captcha-chain{max-width:940px;min-height:438px;margin:12px auto;padding:22px;background:#f8f9fa;border:1px solid #dadce0;border-radius:8px;box-shadow:0 1px 3px rgba(60,64,67,.18)}
+.chain-title{text-align:center;margin:0 0 15px}.chain-title h1{font-size:21px;margin:3px 0}.chain-title p{margin:0;color:#5f6368;font-size:12px}
+.chain-grid{display:grid;grid-template-columns:1fr 50px 1fr;align-items:center;gap:12px}
+.captcha-card{background:#fff;border:1px solid #dadce0;border-radius:7px;padding:24px;min-height:292px;display:flex;flex-direction:column;justify-content:center}
+.captcha-box{display:flex;align-items:center;gap:14px;border:1px solid #c7cbd1;background:#fafafa;padding:18px;margin:16px 0}
+.captcha-square{width:28px;height:28px;border:2px solid #9aa0a6;background:#fff;flex:none}
+.captcha-art{margin-left:auto;width:56px;height:56px;background:linear-gradient(135deg,#4285f4 50%,#34a853 50%);border-radius:5px}
+.chain-arrow{text-align:center;font-size:28px;color:#5f6368}.step-label{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:#006d49;font-weight:700}
+@media(max-width:620px){.google-shell{display:block}.signin-card{width:100%}.careers-body,.chain-grid{display:block}.job-card{margin-top:14px}.chain-arrow{transform:rotate(90deg);margin:8px}.google-context{padding:12px}}
+</style>
 <title>Q3_2026_Facilities_RFQ.pdf | Sublime Security Demo Asset</title>
 <style>
 :root{--green:#04E69B;--green-neutral:#F0FBF6;--green-shade:#006D49;--ink:#0B0B0B;--text:#575757;--muted:#8A8A8A;--border:#E2E4E8;--page:#F3F4F6;--panel:#FFFFFF}
@@ -86,22 +125,7 @@ a{color:var(--green-shade)}
 </head>
 <body>
 <div class="demo-banner"><span class="dot"></span><strong>Sublime Security Demo Asset</strong><span class="tag">Fabricated training page for email security demos. Static and inert: nothing on this page collects, stores or submits data.</span></div>
-<div class="app">
-<header class="appbar" style="--bar:#FFFFFF;--barink:#202124;--accent:#1A73E8;border:1px solid var(--border);border-bottom:none"><span class="brand"><svg width="22" height="20" viewBox="0 0 24 22" aria-hidden="true"><path d="M8 1h8l7 12h-8z" fill="#FFCF3F"/><path d="M1 20 8 8l4 7-3.5 5z" fill="#2684FF"/><path d="M23 13 19.5 20h-11L12 13z" fill="#12A45A"/></svg>Drive</span><span class="sep">/</span><span class="file">Q3_2026_Facilities_RFQ.pdf</span><span class="spacer"></span><span class="presence"><span class="ava" style="background:#2684FF">AD</span><span class="ava" style="background:#12A45A">CD</span><span class="ava" style="background:#D64B3C">RT</span></span><span class="pill">Comment</span><span class="pill solid">Share</span></header>
-<div class="subbar"><span class="crumb">My Drive <b>&rsaquo; BuildRight RFQ &rsaquo; Quick preview</b></span><span class="spacer"></span><span class="tool">Open</span><span class="tool">Details</span><span class="tool">Activity</span></div>
-<div class="layout">
-<aside class="rail"><h4>My Drive</h4><div class="row"><span class="ico"></span>Shared with me</div><div class="row active"><span class="ico g"></span>BuildRight RFQ</div><div class="row"><span class="ico"></span>Recent</div><div class="row"><span class="ico"></span>Starred</div><div class="row"><span class="ico"></span>Trash</div><div class="divider"></div><div class="row"><span class="ico"></span>Shared</div><div class="row"><span class="ico"></span>Recent</div></aside>
-<main class="stage">
-<p class="kicker">Google Drive &middot; quick preview</p><h1>Q3_2026_Facilities_RFQ.pdf</h1>
-<div class="doc"><svg width="34" height="42" viewBox="0 0 40 48" aria-hidden="true"><path d="M4 2h22l10 10v32a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z" fill="#F0FBF6" stroke="#006D49" stroke-width="2"/><path d="M26 2v10h10" fill="none" stroke="#006D49" stroke-width="2"/><rect x="9" y="22" width="20" height="3" rx="1.5" fill="#04E69B"/><rect x="9" y="29" width="16" height="3" rx="1.5" fill="#D6D6D6"/><rect x="9" y="36" width="18" height="3" rx="1.5" fill="#D6D6D6"/></svg><div><strong>Q3_2026_Facilities_RFQ.pdf</strong><span>Quick-access preview &middot; read-only &middot; 4 pages</span></div></div>
-<p>The quick-access leg of the secure document share points straight here, a Drive-style preview of the same request for quote. There is no shortener hop: the link resolves directly to this inert page with a 200 response.</p>
-<div class="frames"><div class="frame"><div class="thumb"><span class="ln a"></span><span class="ln b"></span><span class="ln c"></span><span class="chip"></span></div><div class="cap"><b>Scope &amp; schedule</b><span>Page 1 of 4</span></div></div><div class="frame"><div class="thumb"><span class="ln a"></span><span class="ln b"></span><span class="ln c"></span><span class="chip"></span></div><div class="cap"><b>Pricing summary</b><span>Page 2 of 4</span></div></div><div class="frame"><div class="thumb"><span class="ln a"></span><span class="ln b"></span><span class="ln c"></span><span class="chip"></span></div><div class="cap"><b>Lead times</b><span>Page 3 of 4</span></div></div></div>
-<div class="sections"><div class="s"><b>Viewer mode</b><span>Read-only preview</span></div><div class="s"><b>Document</b><span>Q3_2026_Facilities_RFQ.pdf</span></div><div class="s"><b>Classification</b><span>Demo content, fabricated</span></div></div>
-<table class="meta"><tr><th>Opened from</th><td>Quick-access link in the share email</td></tr><tr><th>Pages</th><td>4</td></tr></table>
-<div class="explain">The destination of the <b>quick-access link</b> in the secure document share sample. In the previous revision this was a shortener hop; it is now a direct Drive-style preview URL on the controlled host.</div>
-</main>
-</div>
-</div>
+<main class="google-shell" data-dense-preview="700x520"><section class="google-context"><span class="g-logo" aria-label="Google"><span class="b">G</span><span class="r">o</span><span class="y">o</span><span class="b">g</span><span class="g">l</span><span class="r">e</span></span><h1>Q3_2026_Facilities_RFQ.pdf</h1><p>The shared item <b>Q3_2026_Facilities_RFQ.pdf</b> is represented by this fabricated sign-in picture. The original route remains stable for existing synthetic email fixtures.</p><p class="inert-note">Sublime Security demo asset: fabricated, inert, and safe for link preview.</p></section><section class="signin-card" aria-label="Disabled sign-in illustration"><span class="g-logo" aria-label="Google"><span class="b">G</span><span class="r">o</span><span class="y">o</span><span class="b">g</span><span class="g">l</span><span class="r">e</span></span><h2>One account. All of Google.</h2><p>Sign in to continue to Google Drive</p><div class="avatar-mock" aria-hidden="true"></div><div class="visual-field" aria-disabled="true">Enter your email</div><div class="visual-field disabled" aria-disabled="true">Password</div><div class="visual-button" aria-disabled="true">Sign in</div><p class="inert-note">Visual mock only. Disabled, non-editable, and collects nothing.</p></section></main>
 <p class="foot">Demo route <span class="route">/drive/file/d/1A3fRQ2026FacilitiesRFQ/preview/</span>. All names, companies and figures are fictional.</p>
 </body>
 </html>

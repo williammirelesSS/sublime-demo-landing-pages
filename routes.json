@@ -4,144 +4,196 @@
     {
       "path": "",
       "kind": "page",
+      "content_kind": "catalog",
       "marker": "Demo landing pages"
     },
     {
       "path": "drive/file/d/1A3fRQ2026FacilitiesRFQ/view/",
       "kind": "page",
+      "content_kind": "google-login",
       "marker": "Q3_2026_Facilities_RFQ.pdf"
     },
     {
       "path": "drive/file/d/1A3fRQ2026FacilitiesRFQ/preview/",
       "kind": "page",
+      "content_kind": "google-login",
       "marker": "Q3_2026_Facilities_RFQ.pdf"
     },
     {
       "path": "drive/drive/folders/0B2vRFQProcurementQ3/",
       "kind": "page",
+      "content_kind": "google-login",
       "marker": "Procurement: Q3 RFQ (mirror)"
+    },
+    {
+      "path": "google/accounts/ServiceLogin/",
+      "kind": "page",
+      "content_kind": "google-login",
+      "marker": "Inert Google sign-in illustration"
+    },
+    {
+      "path": "google/careers/jobs/results/GBR-74291/",
+      "kind": "page",
+      "content_kind": "google-careers",
+      "marker": "Google Careers demo opportunity"
+    },
+    {
+      "path": "google/cloud/application-integration/captcha/",
+      "kind": "page",
+      "content_kind": "google-captcha-login",
+      "marker": "Static CAPTCHA splash"
     },
     {
       "path": "figma/design/Fq2Kp9RmZ3Lw/RFQ-Documentation-Q3-2026/",
       "kind": "page",
+      "content_kind": "standard",
       "marker": "RFQ Documentation, Q3 2026"
     },
     {
       "path": "rfq-portal/",
       "kind": "page",
+      "content_kind": "standard",
       "marker": "Secure Document Portal"
     },
     {
       "path": "sharepoint/sites/procurement/Q3-RFQ/",
       "kind": "page",
+      "content_kind": "standard",
       "marker": "Procurement: Q3 RFQ (mirror)"
     },
     {
       "path": "document-viewer/",
       "kind": "page",
+      "content_kind": "standard",
       "marker": "Online Document Viewer"
     },
     {
       "path": "shared-workspace/rfq-documentation-q3-2026/",
       "kind": "page",
+      "content_kind": "standard",
       "marker": "RFQ Documentation, Q3 2026"
     },
     {
       "path": "onedrive-mirror/rfq-q3-2026/",
       "kind": "page",
+      "content_kind": "standard",
       "marker": "Mirror: RFQ Q3 2026 pack"
     },
     {
       "path": "account-verify/",
       "kind": "page",
+      "content_kind": "standard",
       "marker": "Protected document notice"
     },
     {
       "path": "browser-verification/",
       "kind": "clickfix",
+      "content_kind": "standard",
       "marker": "Additional verification required to open this document",
       "command": "cmd /c echo SUBLIME_CLICKFIX_DEMO"
     },
     {
       "path": "teams-message/",
       "kind": "page",
+      "content_kind": "standard",
       "marker": "Missed message from Rachael Demo"
     },
     {
       "path": "billing-review/invoice/NPS-2026-04721/",
       "kind": "page",
+      "content_kind": "standard",
       "marker": "Invoice NPS-2026-04721"
     },
     {
       "path": "billing-review/dispute/",
       "kind": "page",
+      "content_kind": "standard",
       "marker": "Dispute invoice NPS-2026-04721"
     },
     {
       "path": "voicemail/play/",
       "kind": "page",
+      "content_kind": "standard",
       "marker": "Voicemail from +1 (555) 847-3201"
     },
     {
       "path": "voicemail/settings/",
       "kind": "page",
+      "content_kind": "standard",
       "marker": "Voicemail settings"
     },
     {
       "path": "remittance/updated-account/",
       "kind": "page",
+      "content_kind": "standard",
       "marker": "Updated remittance advice"
     },
     {
       "path": "quote-pack/q3-2026/",
       "kind": "page",
+      "content_kind": "standard",
       "marker": "Revised quote pack, Q3 2026"
     },
     {
       "path": "remittance/account-update/",
       "kind": "page",
+      "content_kind": "standard",
       "marker": "Remittance account update"
     },
     {
       "path": "esign/review/",
       "kind": "page",
+      "content_kind": "standard",
       "marker": "Q1 Executive Compensation Agreement"
     },
     {
       "path": "s/hVr2N9/",
       "kind": "meta-refresh",
+      "content_kind": "standard",
       "marker": "Protected document notice",
       "refresh_to": "account-verify/"
     },
     {
       "path": "s/A9GLwL/",
       "kind": "meta-refresh",
+      "content_kind": "standard",
       "marker": "Missed message from Rachael Demo",
       "refresh_to": "teams-message/"
     },
     {
       "path": "s/XGpj8q/",
       "kind": "meta-refresh",
+      "content_kind": "standard",
       "marker": "Invoice NPS-2026-04721",
       "refresh_to": "billing-review/invoice/NPS-2026-04721/"
     },
     {
       "path": "s/BtD7RR/",
       "kind": "meta-refresh",
+      "content_kind": "standard",
       "marker": "Dispute invoice NPS-2026-04721",
       "refresh_to": "billing-review/dispute/"
     },
     {
       "path": "s/nNiqko/",
       "kind": "meta-refresh",
+      "content_kind": "standard",
       "marker": "Invoice NPS-2026-04721",
       "refresh_to": "billing-review/invoice/NPS-2026-04721/"
     },
     {
       "path": "s/tWWgaG/",
       "kind": "meta-refresh",
+      "content_kind": "standard",
       "marker": "Q1 Executive Compensation Agreement",
       "refresh_to": "esign/review/"
+    },
+    {
+      "path": "s/Q4HT7i/",
+      "kind": "meta-refresh",
+      "content_kind": "google-captcha-login",
+      "marker": "Static CAPTCHA splash",
+      "refresh_to": "google/cloud/application-integration/captcha/"
     },
     {
       "path": "go/viewer/",

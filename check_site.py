@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Health and safety check for every published demo landing page.
 
-Version: 2026.10.19.1
+Version: 2026.10.23.1
 
 Two modes, same assertions:
 
@@ -17,7 +17,8 @@ For every route in routes.json it fails on:
   - a blank page or a missing banner / route marker
   - forms, inputs, buttons, scripts, iframes, embeds, inline event handlers,
     javascript: URLs, <link> tags or any external http(s) reference
-  - login, sign-in, password or CAPTCHA wording, or a GitHub login wall
+  - login, sign-in, password or CAPTCHA wording outside explicitly registered
+    inert illustration pages, or a GitHub login wall
   - a missing Content-Security-Policy or noindex meta tag
   - a meta refresh that points outside the site or at an unknown route
 
@@ -49,10 +50,12 @@ FORBIDDEN = [
     (re.compile(r"(?:src|href|action)\s*=\s*[\"']?\s*(?:https?:)?//", re.I), "external reference"),
     (re.compile(r"url\(\s*[\"']?\s*(?:https?:)?//", re.I), "external CSS resource"),
     (re.compile(r"@import", re.I), "CSS import"),
-    (re.compile(r"captcha|cf-chl|turnstile", re.I), "CAPTCHA or challenge wording"),
-    (re.compile(r"\b(sign|log)\s?-?in\b|password|passcode", re.I), "login or credential wording"),
     (re.compile(r"github\.com/login", re.I), "GitHub login wall"),
 ]
+INERT_WORDING = re.compile(r"captcha|cf-chl|turnstile|\b(?:sign|log)\s?-?in\b|password|passcode", re.I)
+INERT_ILLUSTRATION_KINDS = {"google-login", "google-careers", "google-captcha-login"}
+INERT_WORDING_KINDS = INERT_ILLUSTRATION_KINDS | {"catalog"}
+DENSE_PREVIEW_MARKER = 'data-dense-preview="700x520"'
 REQUIRED = [
     (re.compile(r"<meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none';[^\"]*form-action 'none'", re.I), "strict CSP meta"),
     (re.compile(r"<meta name=\"robots\" content=\"noindex", re.I), "noindex meta"),
@@ -137,10 +140,14 @@ def inside_site(url: str, base: str) -> bool:
     )
 
 
-def content_problems(body: str, markers: list[str]) -> list[str]:
+def content_problems(body: str, markers: list[str], content_kind: str = "standard") -> list[str]:
     problems = [label for pattern, label in FORBIDDEN if pattern.search(body)]
-    problems += [f"missing {label}" for pattern, label in REQUIRED if not pattern.search(body)]
     text = re.sub(r"\s+", " ", TAG_RE.sub(" ", body)).strip()
+    if content_kind not in INERT_WORDING_KINDS and INERT_WORDING.search(text):
+        problems.append("login, credential, CAPTCHA or challenge wording")
+    if content_kind in INERT_ILLUSTRATION_KINDS and DENSE_PREVIEW_MARKER not in body:
+        problems.append("missing dense 700x520 preview marker")
+    problems += [f"missing {label}" for pattern, label in REQUIRED if not pattern.search(body)]
     if len(text) < MIN_TEXT_CHARS:
         problems.append(f"blank or thin page ({len(text)} chars of text)")
     problems += [f"missing marker {marker!r}" for marker in markers if marker not in body]
@@ -174,7 +181,11 @@ def check(routes_doc: dict[str, Any], base: str, local: Path | None, timeout: in
             elif "text/html" not in fetched.get("content_type", ""):
                 problems.append(f"unexpected content type {fetched.get('content_type')}")
         if body:
-            problems += content_problems(body, [banner, route["marker"]])
+            problems += content_problems(
+                body,
+                [banner, route["marker"]],
+                route.get("content_kind", "standard"),
+            )
         if route["kind"] == "clickfix" or route.get("command"):
             command = route.get("command", "")
             if not command:
